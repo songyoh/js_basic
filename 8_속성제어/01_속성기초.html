@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+
+        <input type="email" id="account" value="abc@gmail.com">
+
+        <script>
+            const $input = document.querySelector('input');//태그명이 input인 자료를 가져온 것
+
+            console.dir($input);//dir로 찍으면 정보를 확인할 수 있음
+
+            console.log($input.attributes.id.value);// id 속성의 값 확인
+
+            // 위 조회구문을 토대로 아래와 같이 바꿔보자
+            // 1. id는 'acc'로
+            $input.attributes.id.value = 'acc';
+            // 2. value는 'zzz'로
+            $input.attributes.value.value = 'zzz';
+            // 3. type은 'checkbox'로
+            $input.attributes.type.value = 'checkbox';
+        </script>
+    </body>
+</html>

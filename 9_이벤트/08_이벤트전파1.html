@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+        <style>
+
+            #fruits {
+                padding: 50px;
+                border: 2px solid red;
+            }
+            #fruits li {
+                background: yellow;
+                margin-bottom: 10px;
+            }
+    
+            #fruits li:first-child {
+                position: absolute; /*Apple을 바깥쪽에 위치하도록 설정*/
+                bottom: 10%;
+                right: 5%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- ul#fruits>li.apple{Apple}+li.banana{Banana}+li.grape{Grape} -->
+        <ul id="fruits">
+            <li class="apple">Apple</li>
+            <li class="banana">Banana</li>
+            <li class="grape">Grape</li>
+        </ul>
+
+        <script>
+            const $fruits = document.getElementById('fruits');
+
+            const $apple = $fruits.firstElementChild;
+
+            const clickEvt = (e) =>{
+                console.log('ul의 클릭이벤트 발생!');
+                //console.log(e.target); li를 클릭했는지 ul을 클릭했는지를 감지해줌
+                console.dir(e.target);//내가 누른 태그에 대한 정보가 나옴
+                console.log(`${e.target.tagName} - 눌런!`);
+            }
+
+            $fruits.addEventListener("click", clickEvt);
+
+            $apple.onclick = e =>{
+                console.log('apple의 클릭이벤트 발생');
+            }
+        </script>
+    </body>
+</html>

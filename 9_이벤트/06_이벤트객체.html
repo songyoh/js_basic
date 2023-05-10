@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- p{아무곳이나 클릭!}+em.msg+hr*3+input+p -->
+
+        <p>아무곳이나 클릭!</p>
+        <em class="msg"></em><!-- 기울기가 자동으로 되는 태그 -->
+
+        <hr><hr><hr>
+
+        <input type="text" id="text">
+        <p class="show"></p>
+        <script>
+            // 모든 DOM의 최상단에 자동으로 생성되는 객체(document)에도
+            // 이벤트를 걸 수 있다.
+            document.onclick = function(e){
+                console.log(e);
+
+                // 마우스클릭한 지점의 좌표 구하기.
+                const {x,y} = e;
+                //console.log(`x:${x},y:${y}`);
+                //console.log(`x : ${e.x}, y : ${e.y}`); // 클릭한 좌표가 나타나게 된다.
+
+                // 위의 em.msg에 클릭할때마다 좌표가 표시되도록 해보자.
+                // 힌트 : em.textContent..
+                $em = document.querySelector('.msg');
+                $em.textContent = `x:${e.x},y:${e.y}`;
+
+            };
+            const $input = document.querySelector('input'); // 전역변수로 설정
+
+            function inputKeyUp(e){ // input에 뭔가 입력했을때 똑같이 아래라인에 입력되도록 하는 코드
+                console.log(e)
+                const $show = document.querySelector(".show");
+
+                $show.textContent = $input.value; // input 태그 내부에 입력된 텍스트 복사
+                console.log($input.value);
+            }
+
+            // input태그 내부에서 키보드가 떼질때 발동
+            $input.addEventListener('change', inputKeyUp);
+
+
+        </script>
+    </body>
+</html>

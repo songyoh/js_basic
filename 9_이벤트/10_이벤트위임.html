@@ -73,8 +73,35 @@
 
                 // 3. 텍스트를 em.msg에 복사하기
                 // 현재 내가 클릭한 요소의 텍스트 e.target.textContent
-                document.querySelector('.msg').textContent = e.target.textContent;
+                document.querySelector('em.msg').textContent = e.target.textContent;
+            };
+
+            /*
+                입력창에 과일 이름을 쓰고 '추가'버튼 누를시
+                입력창에 있던 텍스트가 <li id='텍스트'>텍스트</li>
+                형식으로 ul의 마지막 자식으로 추가되도록 이벤트 설정
+            */
+
+            // add버튼을 변수로 저장하기
+            const $addBtn = document.getElementById('add');
+            const $textInput = document.querySelector('.text-box');
+
+            function makeNewFruit(){
+                //input태그 내부에 작성된 값은 .value로 얻을 수 있다.
+                console.log(`현재 input에 기입된 텍스트: ${$textInput.value}`);
+                // li태그를 document를 이용해 생성해보기
+                const $newLi = document.createElement("li");
+                // 내부에 textContent로 위에서 입력한 Input의 텍스트를 입력해주세요.
+                $newLi.textContent = $textInput.value;
+                // id 속성추가 .setAttribute("id","추가할 id명");
+                $newLi.setAttribute("id", $textInput.value.toLowerCase());
+                // ul태그의 자식으로 추가하기
+                $fruits.appendChild($newLi);
+                // 제출버튼이 눌리면 input에 기입된 텍스트가 사라지게 해보기
+                $textInput.value = ''; // 입력창 초기화
             }
+
+            $addBtn.onclick = makeNewFruit;
             
         </script>
 

@@ -1,0 +1,15 @@
+<script>
+    var arr1 = ['사쿠라', '김채원', '카즈하', '허윤진', '홍은채'];
+    alert(arr1)
+
+    while(arr1.length !=0){
+        var delMemberName = prompt('삭제할 멤버 이름을 적어주세요');
+        if(arr1.includes(delMemberName)){
+            var nameIndex = arr1.indexOf(delMemberName);
+            arr1.splice(nameIndex,1);
+            alert(arr1);
+        }else{
+            alert(`${delMemberName}은(는)잘못된 이름`);
+        }
+    }
+</script>

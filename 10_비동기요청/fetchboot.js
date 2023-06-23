@@ -29,6 +29,6 @@ async function loadPersonList(){
 // getPersonList 버튼을 얻어와서 변수에 저장
 let $button = document.getElementById("getPersonList");
 
-// 버튼에 loadPersonList를 클릭시 
+// 버튼에 loadPersonList를 클릭시 수행되도록 처리
                     // loadPersonList()로 대입시, 실행 '결과자료'를 해당 위치에 대입
 $button.addEventListener("click", loadPersonList);
